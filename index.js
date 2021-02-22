@@ -14,22 +14,17 @@ const send = async (Number, content) => {
         to: Number,
         from: config.number,
         body: content
-    })
-    console.log(bot.messages)
-
+    });
 };
-
-// send(config.logNumber, 'Running :O');
 
 const serverInit = async () => {
     
-    app.use(bodyParser.urlencoded({ extended: true }))
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     app.post('/sms/:token', (req, res, next) => {
         const token = req.params.token;
         if(token != process.env.serverToken) return next();
 
-        console.log(req.body);
         const { Body, From } = req.body;
 
         send(config.forwardNumber, `Fom ${From}\n\n${Body}`);
@@ -39,10 +34,9 @@ const serverInit = async () => {
 
     app.get('/', (req, res) => {
         res.send('HELO WORLD')
-    })
+    });
 
-    // app.listen(port, () => console.log('On port: ' + port));
     http.createServer(app).listen(port, () => console.log('On port: ' + port));
-}
+};
 
 serverInit();
