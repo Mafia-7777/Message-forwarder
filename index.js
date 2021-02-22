@@ -4,7 +4,7 @@ const config = require('./config.json');
 const port = process.env.PORT || config.port;
 const app = require('express')();
 const http = require('http');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 
 const bot = new twilio(process.env.accountSid, process.env.authToken);
@@ -29,11 +29,10 @@ const serverInit = async () => {
 
         send(config.forwardNumber, `Fom ${From}\n\n${Body}`);
 
-
     });
 
     app.get('/', (req, res) => {
-        res.send('HELO WORLD')
+        res.send('HELO WORLD');
     });
 
     http.createServer(app).listen(port, () => console.log('On port: ' + port));
