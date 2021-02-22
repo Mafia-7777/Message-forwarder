@@ -1,0 +1,8 @@
+{
+    "number": "YOUR TWILIO NUMBER", 
+    "logNumber": "NUMBER TO SEND LOGS TO",
+    "forwardNumber": "FORWARD NUMBER",
+    
+
+    "port": 8080
+}
